@@ -1,24 +1,18 @@
 package modelos;
 
-public class Usuario {
+public abstract class Usuario {
     private String nombre;
-    private int edad;
     private int id;
     private String correo;
 
-    public Usuario(String nombre, int edad, int id, String correo) {
+    public Usuario(String nombre, int id, String correo) {
         this.nombre = nombre;
-        this.edad = edad;
         this.id = id;
         this.correo = correo;
     }
 
     public String getNombre() {
         return nombre;
-    }
-
-    public int getEdad() {
-        return edad;
     }
 
     public int getId() {
@@ -28,4 +22,6 @@ public class Usuario {
     public String getCorreo() {
         return correo;
     }
+
+
 }

@@ -115,6 +115,28 @@ public class ValidadorEntradas {
         }
     }
 
+    private static final Pattern CONTRASEÑA_PATTERN = Pattern.compile(
+            "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
+    );
+
+    public static String validarContraseña(String mensaje) {
+        while (true) {
+            System.out.print(mensaje);
+            String contraseña = scanner.nextLine().trim();
+
+            if (contraseña.isEmpty()) {
+                System.err.println("Este campo no puede estar vacío");
+            } else if (!CONTRASEÑA_PATTERN.matcher(contraseña).matches()) {
+                System.err.println("El formato de la contraseña es incorrecto");
+                System.out.println("Debe contener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo.");
+            } else {
+                return contraseña;  // contraseña válida
+            }
+
+            System.out.println();
+        }
+    }
+
 
 
     public static int validarEnteroRango(String mensaje, int min, int max) {
@@ -137,7 +159,11 @@ public class ValidadorEntradas {
             }
         }
     }
+
+
     public static void cerrarScanner() {
         scanner.close();
     }
+
+
 }

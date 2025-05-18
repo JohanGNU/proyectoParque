@@ -45,7 +45,7 @@ public class ValidadorEntradas {
         }
     }
 
-    /*expresion regular para la comparacion con el email ingresado por el usuario*/
+    /*formato de los emails*/
     private static final Pattern EMAIL_PATTERN = Pattern.compile(
             "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$"
     );
@@ -75,7 +75,7 @@ public class ValidadorEntradas {
         return null; // retorna null si no hubo ningun error
     }
 
-    //expresion regular para la comparacion con la direccion ingresada por el usuario
+    //formato de las direcciones
     private static final Pattern CALLE_PATTERN = Pattern.compile(
             "^(?i)" +  // Ignorar mayúsculas/minúsculas
                     "(?:" +
@@ -115,10 +115,12 @@ public class ValidadorEntradas {
         }
     }
 
+    /*formato de la contraseña*/
     private static final Pattern CONTRASEÑA_PATTERN = Pattern.compile(
             "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$"
     );
 
+    /*esta funcion valida  el formato de la contraseña */
     public static String validarContraseña(String mensaje) {
         while (true) {
             System.out.print(mensaje);
@@ -138,7 +140,7 @@ public class ValidadorEntradas {
     }
 
 
-
+    /*esta funcion valida el rango de un numero, asi como que sea positivo*/
     public static int validarEnteroRango(String mensaje, int min, int max) {
         while (true) {
             System.out.print(mensaje);
@@ -147,6 +149,7 @@ public class ValidadorEntradas {
                 if (valorEntero.isEmpty()) {
                     throw new IllegalArgumentException("Este campo no puede estar vacío");
                 }
+
                 int valor = Integer.parseInt(valorEntero);
                 if (valor < min || valor > max) {
                     throw new IllegalArgumentException("Debe estar entre " + min + " y " + max);
@@ -159,7 +162,6 @@ public class ValidadorEntradas {
             }
         }
     }
-
 
     public static void cerrarScanner() {
         scanner.close();

@@ -10,7 +10,7 @@ public class TipoDaño {
     //daños predefinidos por defecto
     public static final List<String> tipos= Arrays.asList("Juego roto",
             "Basura acumulada",
-            "Iluminacion en mal estado","Cancha en mal estado","Otro daño"
+            "Iluminacion en mal estado","Cancha en mal estado","Zonas verdes en mal estado","Otro daño"
     );
 
 
